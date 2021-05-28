@@ -20,9 +20,10 @@ import static org.mockito.Mockito.when;
 public class WeatherForecastTestSuite {
 
 
-   static Map<String,Double>temperaturesMapp;
+    static Map<String, Double> temperaturesMapp;
+
     @BeforeAll
-       public static void temperaturesMock() {
+    public static void temperaturesMock() {
         Temperatures temperaturesMock = mock(Temperatures.class);
         Map<String, Double> temperaturesMap = new HashMap<>();
         temperaturesMap.put("Rzeszów", 25.5);
@@ -30,14 +31,14 @@ public class WeatherForecastTestSuite {
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
-        temperaturesMapp=temperaturesMap;
+        temperaturesMapp = temperaturesMap;
 
     }
 
 
-
     @Mock
     private Temperatures temperaturesMock;
+
     @Test
     void testCalculateForecastWithMock() {
         //Given
@@ -52,8 +53,6 @@ public class WeatherForecastTestSuite {
         //Then
         Assertions.assertEquals(5, quantityOfSensor);
     }
-
-
 
 
     @Test
