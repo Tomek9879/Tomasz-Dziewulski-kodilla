@@ -2,6 +2,8 @@ package com.kodilla.testing.weather.mock;
 
 import com.kodilla.testing.weather.stub.WeatherForeCast;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.kodilla.testing.weather.stub.Temperatures;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,9 +19,10 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class WeatherForecastTestSuite {
 
-    @Test
-    void testCalculateForecastWithMock() {
-        //Given
+
+   static Map<String,Double>temperaturesMapp;
+    @BeforeAll
+       public static void temperaturesMock() {
         Temperatures temperaturesMock = mock(Temperatures.class);
         Map<String, Double> temperaturesMap = new HashMap<>();
         temperaturesMap.put("Rzeszów", 25.5);
@@ -27,7 +30,19 @@ public class WeatherForecastTestSuite {
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
-        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        temperaturesMapp=temperaturesMap;
+
+    }
+
+
+
+    @Mock
+    private Temperatures temperaturesMock;
+    @Test
+    void testCalculateForecastWithMock() {
+        //Given
+
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMapp);
 
         WeatherForeCast weatherForeCast = new WeatherForeCast(temperaturesMock);
 
@@ -39,19 +54,13 @@ public class WeatherForecastTestSuite {
     }
 
 
-    @Mock
-    private Temperatures temperaturesMock;
+
 
     @Test
     void testGetMiddleTemperature() {
         //Given
-        Map<String, Double> temperaturesMap = new HashMap<>();
-        temperaturesMap.put("Rzeszów", 25.5);
-        temperaturesMap.put("Krakow", 26.2);
-        temperaturesMap.put("Wroclaw", 24.8);
-        temperaturesMap.put("Warszawa", 25.2);
-        temperaturesMap.put("Gdansk", 26.1);
-        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMapp);
 
         WeatherForeCast weatherForeCast = new WeatherForeCast(temperaturesMock);
 
@@ -74,13 +83,8 @@ public class WeatherForecastTestSuite {
     void testGetMedianTemperature() {
 
         //Given
-        Map<String, Double> temperaturesMap = new HashMap<>();
-        temperaturesMap.put("Rzeszów", 25.5);
-        temperaturesMap.put("Krakow", 26.2);
-        temperaturesMap.put("Wroclaw", 24.8);
-        temperaturesMap.put("Warszawa", 25.2);
-        temperaturesMap.put("Gdansk", 26.1);
-        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMapp);
 
         WeatherForeCast weatherForeCast = new WeatherForeCast(temperaturesMock);
 
