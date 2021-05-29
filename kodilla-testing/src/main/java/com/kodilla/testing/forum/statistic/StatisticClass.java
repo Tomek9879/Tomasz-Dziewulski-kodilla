@@ -27,7 +27,7 @@ public class StatisticClass {
 
        // this.middlePostCountOfUsersCount=statistics.postsCount()*1.0/statistics.usersNames().size();
 
-      //  this.middleCommentsOfUsersCount=statistics.commentsCount()*1.0/statistics.postsCount();
+       // this.middleCommentsOfUsersCount=statistics.commentsCount()*1.0/statistics.postsCount();
 
 
     }
