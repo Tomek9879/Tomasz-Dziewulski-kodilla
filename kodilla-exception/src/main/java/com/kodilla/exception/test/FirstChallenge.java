@@ -26,6 +26,8 @@ public class FirstChallenge {
 
             System.out.println("Błąd dzielenie przez 0");
 
+        }finally{
+            System.out.println("Koniec działania matematycznego");
         }
 
     }
