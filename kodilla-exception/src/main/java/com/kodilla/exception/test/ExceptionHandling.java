@@ -1,4 +1,4 @@
-package com.kodilla.exception.test;
+/*package com.kodilla.exception.test;
 
 public class ExceptionHandling {
 
@@ -16,3 +16,4 @@ public class ExceptionHandling {
         }
     }
 }
+*/

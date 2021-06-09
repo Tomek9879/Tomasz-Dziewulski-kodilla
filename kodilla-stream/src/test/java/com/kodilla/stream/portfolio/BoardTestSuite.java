@@ -3,6 +3,7 @@ package com.kodilla.stream.portfolio;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -169,7 +170,14 @@ class BoardTestSuite {
 
         //long longTask = project.getTaskLists().stream().filter(inProgressTasks::contains)
           //      .flatMap(tl->tl.getTasks().stream()).map(Task::getCreated).count();
-            //    System.out.println(longTask);
+       // long Task1 = project.getTaskLists().stream().filter(inProgressTasks::contains)
+         //     .flatMap(tl->tl.getTasks().stream()).map(Task::getCreated).map(date-> ChronoUnit.DAYS.between(date,LocalDate.now())).mapToInt(a->a.intValue()).sum();
+
+         long Task1 = project.getTaskLists().stream().filter(taskList->inProgressTasks.contains(taskList))
+             .flatMap(tl->tl.getTasks().stream()).map(task->task.getCreated()).map(date-> ChronoUnit.DAYS.between(date,LocalDate.now())).mapToInt(a->a.intValue()).sum();
+
+
+        //    System.out.println(longTask);
 
     }
 }

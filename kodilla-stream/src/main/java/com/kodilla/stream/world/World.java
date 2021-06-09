@@ -16,8 +16,9 @@ public void addContinent(Continent continent){
 }
 public BigDecimal getPeopleQuantity(){
 
-    BigDecimal totalPeopleQuantity = continent.stream().flatMap(continent1->continent1.getCountyList().stream()).map(Country::getPeopleQuantity).reduce(BigDecimal.ZERO,(sum,current)->sum=sum.add(current));
+   // BigDecimal totalPeopleQuantity = continent.stream().flatMap(continent1->continent1.getCountyList().stream()).map(Country::getPeopleQuantity).reduce(BigDecimal.ZERO,(sum,current)->sum=sum.add(current));
 
+    BigDecimal totalPeopleQuantity = continent.stream().flatMap(continent1->continent1.getCountyList().stream()).map(country->country.getPeopleQuantity()).reduce(BigDecimal.ZERO,(sum,current)->sum=sum.add(current));
 
     return totalPeopleQuantity;
 }
