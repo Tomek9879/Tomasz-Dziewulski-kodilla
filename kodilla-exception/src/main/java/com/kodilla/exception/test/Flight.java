@@ -7,6 +7,7 @@ public class Flight {
     public Flight(String departureAirport, String arrivalAirport) {
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
+
     }
 
     public String getDepartureAirport() {
