@@ -16,14 +16,14 @@ public class FlightSearch {
         mapaLotnisk.put("Krakow",true);
         mapaLotnisk.put("Madryt",true);
 
-        for(Map.Entry<String,Boolean> entry :mapaLotnisk.entrySet()) {
-            if (entry.getKey().equals(nazwaLotniska1)) {
-                return entry.getValue();
+
+            if (mapaLotnisk.containsKey(nazwaLotniska1)) {
+                return mapaLotnisk.get(nazwaLotniska1);
             } else
                 throw new RouteNotFoundException();
 
-        }
-             return null;
+
+
    }
 public static void main(String args[]) {
    // funkcja findFlight przyjmwuje stworzony obiekt lot1 klasy flight nastepnie pobiera z obiektu lotnisko arrivalAirport i sprawdza czy istnieje
