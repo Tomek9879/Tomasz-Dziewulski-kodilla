@@ -47,14 +47,7 @@ public class Task {
         public LocalDate getDeadline() {
             return deadline;
         }
-        public int dat (LocalDate a){
-         Period okresPomiedzy=Period.between(a,LocalDate.now());
-         int lata=okresPomiedzy.getYears();
 
-         int dni=okresPomiedzy.getDays();
-         int miesiace=okresPomiedzy.getMonths();
-         return lata*365+miesiace*30+dni;
-        }
 
         @Override
         public String toString() {

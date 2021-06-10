@@ -147,37 +147,17 @@ class BoardTestSuite {
         List<TaskList>  inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
 
-        List<LocalDate>dane=new ArrayList<>();
-           dane = project.getTaskLists().stream().filter(inProgressTasks::contains)
-                .flatMap(tl->tl.getTasks().stream()).map(Task::getCreated).collect(Collectors.toList());//filter(d-> Period.between(d,LocalDate.now())).sum();
-
-             System.out.println(dane.get(0));
-             Period c= Period.between(dane.get(0).minusMonths(5),LocalDate.now());
-             System.out.println(c);
-             Period b= Period.between(dane.get(0).minusMonths(8),LocalDate.now());
-            int w = c.getMonths();
-         //    Period a = c+b;
-        System.out.println(w);
-
-
-
- //       Period okresPomiedzy=Period.between(a,LocalDate.now());
-    //    int lata=okresPomiedzy.getYears();
-
-    //    int dni=okresPomiedzy.getDays();
-     //   int miesiace=okresPomiedzy.getMonths();
-      //  return lata*365+miesiace*30+dni;
-
-        //long longTask = project.getTaskLists().stream().filter(inProgressTasks::contains)
-          //      .flatMap(tl->tl.getTasks().stream()).map(Task::getCreated).count();
+        long longTask = project.getTaskLists().stream().filter(inProgressTasks::contains)
+                        .flatMap(tl->tl.getTasks().stream()).map(Task::getCreated).count();
        // long Task1 = project.getTaskLists().stream().filter(inProgressTasks::contains)
          //     .flatMap(tl->tl.getTasks().stream()).map(Task::getCreated).map(date-> ChronoUnit.DAYS.between(date,LocalDate.now())).mapToInt(a->a.intValue()).sum();
 
          long Task1 = project.getTaskLists().stream().filter(taskList->inProgressTasks.contains(taskList))
              .flatMap(tl->tl.getTasks().stream()).map(task->task.getCreated()).map(date-> ChronoUnit.DAYS.between(date,LocalDate.now())).mapToInt(a->a.intValue()).sum();
 
+         long taskResults=Task1/longTask;
 
-        //    System.out.println(longTask);
-
+        assertEquals(10,taskResults);
     }
+
 }
