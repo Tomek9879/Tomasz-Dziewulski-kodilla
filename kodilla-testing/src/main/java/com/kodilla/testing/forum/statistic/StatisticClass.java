@@ -18,20 +18,32 @@ public class StatisticClass {
     public void calculateAdvStatistics(Statistics statistics){
         this.postsCount=statistics.postsCount();
         this.commentCount = statistics.commentsCount();
-        if(statistics.usersNames()==null)
-            this.usersCount=0;
-        else
-        this.usersCount = statistics.usersNames().size();
+        if(statistics.usersNames()==null) {
+            this.usersCount = 0;
+            this.middleCommentOfPostCount = 0;
+            this.middlePostCountOfUsersCount=0;
+            this.middleCommentsOfUsersCount=0;
 
-        this.middleCommentOfPostCount=statistics.commentsCount()*1.0/statistics.postsCount();
+        }
+        else {
+            this.usersCount = statistics.usersNames().size();
 
-       // this.middlePostCountOfUsersCount=statistics.postsCount()*1.0/statistics.usersNames().size();
+            this.middleCommentOfPostCount = statistics.commentsCount() * 1.0 / statistics.postsCount();
+            this.middlePostCountOfUsersCount=statistics.postsCount()*1.0/statistics.usersNames().size();
+            this.middleCommentsOfUsersCount=statistics.commentsCount()*1.0/statistics.postsCount();
+        }
 
-       // this.middleCommentsOfUsersCount=statistics.commentsCount()*1.0/statistics.postsCount();
+
+
 
 
     }
     public void showStatistics(){
+        System.out.println(getUsersCount());
+        System.out.println(getPostsCount());
+        System.out.println(getCommentCount());
+        System.out.println(getMiddleCommentCount());
+        System.out.println(getMiddleCommentOfPostCount());
 
     }
 

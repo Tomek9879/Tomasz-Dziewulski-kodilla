@@ -46,6 +46,9 @@ public class TestStatisticClass {
    @Test
    void TestCommentCountLessThanPostCount(){
     StatisticClass statisticClass = new StatisticClass();
+    List<String> listUsers=new ArrayList<>();
+    listUsers.add("Janek");
+    when(statisticMock.usersNames()).thenReturn(listUsers);
     when(statisticMock.commentsCount()).thenReturn(2);
     when(statisticMock.postsCount()).thenReturn(8);
     statisticClass.calculateAdvStatistics(statisticMock);
