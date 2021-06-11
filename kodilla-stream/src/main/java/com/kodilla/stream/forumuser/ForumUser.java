@@ -46,5 +46,6 @@ public class ForumUser {
                 ", birthDate=" + birthDate +
                 ", postsCounts=" + postsCounts +
                 '}';
+
     }
 }
