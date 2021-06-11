@@ -47,5 +47,6 @@ public class ForumUser {
                 ", postsCounts=" + postsCounts +
                 '}';
 
+
     }
 }
