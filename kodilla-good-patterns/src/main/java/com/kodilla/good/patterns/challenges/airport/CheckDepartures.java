@@ -1,8 +1,8 @@
-package com.kodilla.good.patterns.challenges.airport;
+ package com.kodilla.good.patterns.challenges.airport;
 
-public class CheckDepartures {
+ public class CheckDepartures {
 
-    public void printDepartures(String nameOfCity) {
+     public void printDepartures(String nameOfCity) {
 
         DeparturesRealization departures = new DeparturesRealization();
 

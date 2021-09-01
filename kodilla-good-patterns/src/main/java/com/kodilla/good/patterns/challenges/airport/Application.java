@@ -1,9 +1,7 @@
 package com.kodilla.good.patterns.challenges.airport;
 
-import java.util.List;
-import java.util.Map;
-
 public class Application {
+
 
     public static void main(String[] args) {
 
@@ -14,6 +12,5 @@ public class Application {
         checkArrivals.printArrivals("Gdansk");
 
         checkDepartures.FlyBy("Gdansk", "Wroclaw");
-
     }
 }
