@@ -1,0 +1,27 @@
+
+
+{
+   "nazwa_samochodu" : "Polonez",
+   "marka_samochodu" : "Caro",
+   "pojemnosc_silnika":2.0,
+
+   "fotele":[
+
+   {
+   "material":"welurowe",
+   "kolor":"czarny"
+   },
+   {
+      "material":"welurowe",
+      "kolor":"czarny"
+      },
+   {
+      "material":"welurowe",
+      "kolor":"czarny"
+       },
+   {
+      "material":"welurowe",
+      "kolor":"czarny"
+       }
+   ]
+}
